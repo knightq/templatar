@@ -1,3 +1,4 @@
+# Railtie
 module Templatar
   class Railtie < Rails::Railtie
     initializer 'templatar.model_additions' do

@@ -3,6 +3,4 @@ require 'spec_helper'
 
 describe Templatar do
 
-
-
 end

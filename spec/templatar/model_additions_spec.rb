@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 class TestARModel < SuperModel::Base
-
   def self.column_names
     [:a, :b, :c, :id]
   end
@@ -21,7 +20,6 @@ class TestARModel < SuperModel::Base
 
   def id
   end
-
 end
 
 describe Templatar::ModelAdditions do
@@ -50,7 +48,7 @@ describe Templatar::ModelAdditions do
 
     it { should_not be_template }
 
-    it "should retunr standard value for column_names" do
+    it 'should retunr standard value for column_names' do
       model.a.should be_nil
       model.b.should be_nil
       model.c.should be_nil
