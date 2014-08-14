@@ -37,10 +37,10 @@ describe Templatar::ModelAdditions do
     it { should be_template }
 
     it "should retunr column_name + '_TEMPLATE'" do
-      model.a.should == 'a_TEMPLATE'
-      model.b.should == 'b_TEMPLATE'
-      model.c.should == 'c_TEMPLATE'
-      model.id.should == 'ID'
+      model.a.should == 'a$TEMPLATE$'
+      model.b.should == 'b$TEMPLATE$'
+      model.c.should == 'c$TEMPLATE$'
+      model.id.should == '$ID$'
     end
   end
 
