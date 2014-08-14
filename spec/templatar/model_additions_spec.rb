@@ -4,7 +4,7 @@ require 'spec_helper'
 class TestARModel < SuperModel::Base
 
   def self.column_names
-    [:a, :b, :c]
+    [:a, :b, :c, :id]
   end
 
   extend Templatar::ModelAdditions
@@ -17,6 +17,9 @@ class TestARModel < SuperModel::Base
   end
 
   def c
+  end
+
+  def id
   end
 
 end
@@ -37,6 +40,7 @@ describe Templatar::ModelAdditions do
       model.a.should == 'a_TEMPLATE'
       model.b.should == 'b_TEMPLATE'
       model.c.should == 'c_TEMPLATE'
+      model.id.should == 'ID'
     end
   end
 
@@ -50,6 +54,7 @@ describe Templatar::ModelAdditions do
       model.a.should be_nil
       model.b.should be_nil
       model.c.should be_nil
+      model.id.should be_nil
     end
   end
 end
