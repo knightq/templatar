@@ -1,5 +1,7 @@
 # Templatar
 
+[![Build Status](https://travis-ci.org/knightq/templatar.svg)](https://travis-ci.org/knightq/templatar)
+
 TODO: Write a gem description
 
 ## Installation
