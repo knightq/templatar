@@ -13,7 +13,7 @@ module Templatar
           t.instance_variable_set :@templatar, true
           t_metaclass = class << t; self; end
           self.column_names.each do |column|
-            t_metaclass.send(:define_method, column) { column == 'id' ? '$ID$' : "#{column}$TEMPLATE$" }
+            t_metaclass.send(:define_method, column) { column.to_sym == :id ? '__ID__' : "#{column}__TEMPLATE__" }
           end
           t
         end
