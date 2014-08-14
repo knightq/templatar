@@ -15,7 +15,7 @@ module Templatar
           t_metaclass = class << t; self; end
           self.column_names.each do |column|
             t_metaclass.send(:define_method, column) do
-              column == :id ? 'ID' : "#{column}_TEMPLATE"
+              column == 'id' ? 'ID' : "#{column}_TEMPLATE"
             end
           end
           t
