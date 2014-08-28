@@ -8,7 +8,7 @@ module Templatar
 
       metaclass = class << self; self; end
       metaclass.send(:define_method, :template) do
-        @@templatar_singleton ||= begin
+        @templatar_singleton ||= begin
           t = self.new
           t.instance_variable_set :@templatar, true
           t_metaclass = class << t; self; end

@@ -22,7 +22,30 @@ class TestARModel < SuperModel::Base
   end
 end
 
+class Test2ARModel < SuperModel::Base
+  def self.column_names
+    [:x, :id]
+  end
+
+  extend Templatar::ModelAdditions
+  has_template
+
+  def x
+  end
+
+  def id
+  end
+end
+
 describe Templatar::ModelAdditions do
+
+  it 'should produce a singleton' do
+    TestARModel.template.should === TestARModel.template
+  end
+
+  it 'should produce different singletons' do
+    TestARModel.template.should_not == Test2ARModel.template
+  end
 
   it 'should inject a template method on the model class' do
     TestARModel.new.should respond_to?(:template)
