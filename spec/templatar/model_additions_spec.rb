@@ -7,7 +7,7 @@ class TestARModel < SuperModel::Base
   end
 
   extend Templatar::ModelAdditions
-  has_template
+  has_template methods: [:x, :y]
 
   def a
   end
@@ -57,11 +57,17 @@ describe Templatar::ModelAdditions do
 
     it { should be_template }
 
-    it "should retunr column_name + '_TEMPLATE'" do
+    it "should return column_name + '_TEMPLATE'" do
       model.a.should == 'a__TEMPLATE__'
       model.b.should == 'b__TEMPLATE__'
       model.c.should == 'c__TEMPLATE__'
       model.id.should == '__ID__'
+    end
+
+    it "should return method_name + '_TEMPLATE' for custom methods" do
+      model.x.should == 'x__TEMPLATE__'
+      model.y.should == 'y__TEMPLATE__'
+      expect { model.z }.to raise_error(NoMethodError)
     end
   end
 
